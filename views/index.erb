@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Messages</title>
+</head>
+<body>
+<h1>All messages!</h1>
+  <% @posts.each do |post| %>
+
+   <p>
+     <% if post.created_at %>
+        <%= "#{post.created_at}" %> <br/>
+     <% end %>
+     <%= "#{post.by}: #{post.text} " %>
+   </p>
+
+  <% end  %>
+
+<div class="form">
+  <form action="/" method="POST">
+    Nick: <input type="text" name="by" size="10" maxlength="10"/>
+    Message: <input type="text" name="text" size="40" maxlength="60"/>
+    <input type="submit" value="send"/>
+  </form>
+</div>
+
+</body>
+</html>
